@@ -19,6 +19,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install safety requests
 
@@ -32,5 +33,5 @@ jobs:
 
     - name: UI HTTP tests
       run: |
-        curl --fail http://127.0.0.1:5000/
-        curl --fail "http://127.0.0.1:5000/result?term=test"
+        curl -v --fail http://127.0.0.1:5000/
+        curl -v --fail "http://127.0.0.1:5000/result?term=test"
